@@ -31,7 +31,7 @@ class Main:
 
             # Capture the id attribute of each 'size-10' element
             flags_list = []
-            for size_10_element in size_10_elements:
+            for index, size_10_element in enumerate(size_10_elements, start=1):
                 # Try to get the 'id' attribute first
                 flag_attribute = size_10_element.get_attribute('id')
                 # If 'id' is empty or doesn't contain 'flag-', try to get the 'class' attribute
@@ -47,6 +47,7 @@ class Main:
             for item in combined_list:
                 print(item)
 
+
         except Exception as e:
             print("Sorry, something went wrong:", e)
 
@@ -58,3 +59,4 @@ class Main:
 if __name__ == '__main__':
     program = Main("https://hertie-scraping-website.vercel.app/")
     program.run()
+

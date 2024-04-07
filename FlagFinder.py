@@ -22,6 +22,7 @@ class FlagFinder:
     def print_all_flags(self):
         self.scraper.print_all_flags()
 
+
 if __name__ == "__main__":
     flag_finder = FlagFinder()
     flag_finder.run()

@@ -1,8 +1,7 @@
-from sys import path
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+
 
 class DriverWrapper:
     def __init__(self, base_url):
@@ -13,7 +12,6 @@ class DriverWrapper:
         full_url = f"{self.base_url}/{path.strip('/')}" if path else self.base_url
         self.driver.get(full_url)
         self.driver.maximize_window()
-        # Implement waiting logic here
 
     def quit(self):
         self.driver.quit()

@@ -1,7 +1,10 @@
-import re, time
+import re
+import time
+
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 class FlagScraper:
     def __init__(self, driver_wrapper):
@@ -16,6 +19,7 @@ class FlagScraper:
                 if flag not in self.flags:
                     self.flags.append(flag)
                     print(flag)
+
     def click_and_capture_flags(self, start, end):
         for i in range(start, end + 1, 2):
             try:
@@ -30,6 +34,7 @@ class FlagScraper:
                     print(flag)
             except Exception as e:
                 print(f"Button with ID flag-{i} not found. Error: {e}")
+
     def enter_text_and_capture_flag(self):
         try:
             input_field = WebDriverWait(self.driver, 10).until(
@@ -43,6 +48,7 @@ class FlagScraper:
                 print(flag)
         except Exception as e:
             print("Final flag not found. Error:", e)
+
     def print_all_flags(self):
         print("\nAll collected flags:")
         for flag in sorted(self.flags, key=lambda x: int(re.search(r'\d+', x).group())):
